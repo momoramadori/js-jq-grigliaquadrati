@@ -6,16 +6,24 @@
 
 
 
-//aggiungiamo tramite jQuery elementi dentro #griglia
-//Per farlo 25 volte utilizziamo un ciclo for, ed utilizziamo append perchè aggiunge elementi
+//Aggiungiamo elementi all'html tramite jQuery
 for (var i = 0; i < 25; i++) {
     $('#griglia').append('<div class="quadrato"><p></p></div>');
-};
+}
 
+//Intercettiamo ogni elemento o dentro .quadrato
 $('.quadrato p').each(function() {
-    $(this).append(getRndInteger(1,10))
+    //Inseriamo dentro ogni p un numero random da 0 a 10
+    $(this).append(getRndInteger(0,10));
+    //Costriuisci un if per definire il colore dei numeri
+    if (parseInt($(this).text()) % 2 == 0 && parseInt($(this).text()) != 0 ) {
+        //Se il contenuto della p è pari e diverso da zero lo coloro di rosso
+        $(this).addClass('testo-rosso');
+    } else if (parseInt($(this).text()) == 0) {
+        // Se è zero lo coloro di verde
+        $(this).addClass('testo-verde');
+    } // se è dispari lascio il colore di dafault che è nero
 });
-
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
