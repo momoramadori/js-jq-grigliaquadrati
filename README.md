@@ -1,1 +1,1 @@
-js-jq-grigliaquadrati
+#27 : Generare una griglia ed interagire al click con jQuery
